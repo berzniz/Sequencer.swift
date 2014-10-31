@@ -13,7 +13,7 @@ class Sequencer {
     typealias SequencerNext = (AnyObject? -> Void)
     typealias SequencerStep = (AnyObject?, SequencerNext) -> Void
     
-    var steps: SequencerStep[]  = []
+    var steps: [SequencerStep]  = []
     
     func run() {
         runNextStepWithResult(nil)
@@ -23,7 +23,7 @@ class Sequencer {
         steps.append(step)
     }
     
-    func dequeueNextStep() -> (step: SequencerStep) {
+    func dequeueNextStep() -> (SequencerStep) {
         return steps.removeAtIndex(0)
     }
     
